@@ -1,8 +1,9 @@
-package pl.dawidcode.springboot;
+package pl.dawidcode.springboot.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.dawidcode.springboot.SoftwareEngineer;
 
 import java.util.List;
 
