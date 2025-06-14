@@ -1,9 +1,15 @@
 package pl.dawidcode.springboot.book;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import pl.dawidcode.springboot.domains.Cartoon;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,6 +40,11 @@ public class BookController {
         bookService.add(book);
     }
 
+    @Operation(summary = "Find Book by ID", description = "Returns a single Book",
+            tags = { "book" })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "successful operation"),
+            @ApiResponse(responseCode = "404", description = "Book not found") })
     @GetMapping("/{id}")
     public Optional<Book> getBook(@PathVariable Long id){
         return this.bookService.get(id);

@@ -10,6 +10,8 @@ public class HomeController {
     @Value("${coderslab.course.name}")
     private String myCustomProperty;
 
+
+
     @GetMapping("/sampleProperty")
     @ResponseBody
     public String sampleProperty(){
